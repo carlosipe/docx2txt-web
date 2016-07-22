@@ -1,0 +1,12 @@
+<form method="post" action="/zip" enctype="multipart/form-data">
+  <p><button type="submit" class="btn btn-primary">Download ZIP</button></p>
+  <br>
+  % results.each_with_index do |r,i|
+    <article>
+      <h4>{{ r.fetch(:title) }}</h4>
+      <input type="hidden" name="texts[{{i}}][title]" value="{{ r.fetch(:title) }}">
+      <textarea style="width:100%;height:500px" name="texts[{{i}}][text]">{{ r.fetch(:text) }}</textarea>
+    </article>
+  % end
+  <button type="submit" class="btn btn-primary">Download ZIP</button>
+</form>
